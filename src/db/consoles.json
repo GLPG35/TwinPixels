@@ -1,0 +1,66 @@
+[
+    {
+        "platform": {
+            "name": "Nintendo",
+            "id": 0,
+            "consoles": [
+                {
+                    "name": "Nintendo Switch",
+                    "id": 1,
+                    "picture": "./images/Nintendo_Switch_Console.png"
+                },
+                {
+                    "name": "Nintendo 3DS",
+                    "id": 2,
+                    "picture": "./images/Nintendo_3DS_Console.png"
+                }
+            ]
+        }
+    },
+    {
+        "platform": {
+            "name": "PlayStation",
+            "id": 1,
+            "consoles": [
+                {
+                    "name": "PlayStation 5",
+                    "id": 1,
+                    "picture": "./images/PlayStation_5_Console.png"
+                },
+                {
+                    "name": "PlayStation 4",
+                    "id": 2,
+                    "picture": "./images/PlayStation_4_Console.png"
+                },
+                {
+                    "name": "PlayStation 3",
+                    "id": 3,
+                    "picture": "./images/PlayStation_3_Console.png"
+                }
+            ]
+        }
+    },
+    {
+        "platform": {
+            "name": "Xbox",
+            "id": 2,
+            "consoles": [
+                {
+                    "name": "Xbox Series X",
+                    "id": 1,
+                    "picture": "./images/Xbox_Series_X_Console.png"
+                },
+                {
+                    "name": "Xbox Series S",
+                    "id": 2,
+                    "picture": "./images/Xbox_Series_S_Console.png"
+                },
+                {
+                    "name": "Xbox One X",
+                    "id": 3,
+                    "picture": "./images/Xbox_One_X_Console.png"
+                }
+            ]
+        }
+    }
+]

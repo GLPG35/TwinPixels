@@ -1,0 +1,15 @@
+.consoles {
+    width: 100%;
+    height: max-content;
+
+    .container1 {
+        width: 100%;
+        height: calc(100vh - 6em);
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-size: 2em;
+        }
+    }
+}
