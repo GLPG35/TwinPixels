@@ -1,10 +1,13 @@
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import switchModel from '../../../models/Nintendo_Switch.glb?url'
+import seriesSModel from '../../../models/Xbox_Series_S.glb?url'
+import ps4Model from '../../../models/PS4.glb?url'
 
 export const NintendoSwitch = ({ ...props }) => {
 	const group = useRef()
-	const { nodes, materials } = useGLTF('../../../models/Nintendo_Switch.glb')
+	const { nodes, materials } = useGLTF(switchModel)
 
 	useFrame(state => {
 		const t = state.clock.getElapsedTime()
@@ -22,7 +25,7 @@ export const NintendoSwitch = ({ ...props }) => {
 
 export const XboxSeriesS = ({ ...props }) => {
 	const group = useRef()
-	const { nodes, materials } = useGLTF('../../../models/Xbox_Series_S.glb')
+	const { nodes, materials } = useGLTF(seriesSModel)
 
 	useFrame(state => {
 		const t = state.clock.getElapsedTime()
@@ -40,7 +43,7 @@ export const XboxSeriesS = ({ ...props }) => {
 
 export const PS4 = ({ ...props }) => {
 	const group = useRef()
-	const { nodes, materials } = useGLTF('../../../models/PS4.glb')
+	const { nodes, materials } = useGLTF(ps4Model)
 
 	useFrame(state => {
 		const t = state.clock.getElapsedTime()
@@ -57,6 +60,6 @@ export const PS4 = ({ ...props }) => {
 	)
 }
 
-useGLTF.preload('../../../models/PS4.glb')
-useGLTF.preload('../../../models/Nintendo_Switch.glb')
-useGLTF.preload('../../../models/Xbox_Series_S.glb')
+useGLTF.preload(ps4Model)
+useGLTF.preload(switchModel)
+useGLTF.preload(seriesSModel)

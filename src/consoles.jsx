@@ -2,14 +2,14 @@ import './scss/consoles.scss'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import consolesJSON from './db/consoles.json'
 
 const Consoles = () => {
     const { platform: platformParam } = useParams()
     const [consoles, setConsoles] = useState(false)
 
     useEffect(() => {
-        fetch('../../src/db/consoles.json').then(res => res.json())
-        .then(setConsoles)
+        setConsoles(consolesJSON)
     }, [])
 
     return (
