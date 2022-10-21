@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber'
 
 export const NintendoSwitch = ({ ...props }) => {
 	const group = useRef()
-	const { nodes, materials } = useGLTF('./models/Nintendo_Switch.glb')
+	const { nodes, materials } = useGLTF('../../../models/Nintendo_Switch.glb')
 
 	useFrame(state => {
 		const t = state.clock.getElapsedTime()
