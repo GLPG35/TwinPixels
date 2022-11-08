@@ -19,7 +19,7 @@ const Item = ({ id, title, pic, price }) => {
 	}
 
     return (
-        <div key={id} className="card">
+        <div className="card">
             <div className="pic">
                 <img src={pic} alt={title} />
             </div>
