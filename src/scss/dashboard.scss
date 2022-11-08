@@ -1,0 +1,10 @@
+.dashboard {
+    width: 100%;
+    height: max-content;
+
+    .container1 {
+        width: 100%;
+        min-height: calc(100vh - 6em);
+        position: relative;
+    }
+}

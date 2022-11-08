@@ -19,69 +19,142 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
+            position: relative;
 
-            .platform {
-                width: 15em;
-                height: max-content;
-                position: relative;
-                z-index: 1;
+            .arrow {
+                position: absolute;
+                font-size: 5em;
+                z-index: 10;
+                cursor: pointer;
                 transition: 0.2s ease-out;
 
                 &:hover {
-                    transform: translateY(-2em);
+                    color: var(--accent-color);
+                }
 
-                    .sections {
-                        transform: translateY(3.5em);
+                &.left {
+                    left: 0;
+                }
+
+                &.right {
+                    right: 0;
+                }
+            }
+
+            .dots {
+                position: absolute;
+                height: 0.8em;
+                bottom: 0;
+                display: flex;
+                gap: 0.8em;
+                align-items: center;
+                justify-content: center;
+                
+                .dot {
+                    width: 0.5em;
+                    aspect-ratio: 1 / 1;
+                    background-color: var(--text-color);
+                    border-radius: 50%;
+                    transition: 0.2s ease-out;
+                    cursor: pointer;
+
+                    &.active {
+                        width: 0.8em;
+                        background-color: var(--accent-color);
+                        pointer-events: none;
+                    }
+
+                    &:hover {
+                        background-color: var(--accent-color);
                     }
                 }
+            }
 
-                .icon {
-                    width: 100%;
-                    aspect-ratio: 1 / 1;
-                    background-color: var(--bg-color);
-                    border: 5px solid var(--accent-color);
-                    color: var(--accent-color);
-                    border-radius: 25px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 5em;
-                }
+            .keen-slider {
+                height: 100%;
 
-                .sections {
-                    position: absolute;
-                    isolation: isolate;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 5em;
-                    z-index: -1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 0.5em;
-                    padding: 1em 1em 0 1em;
-                    background-color: var(--accent-color);
-                    border-radius: 0 0 25px 25px;
-                    font-weight: 600;
-                    transition: 0.2s ease-out;
-
-                    a {
-                        transition: 0.2s ease-out;
-                        padding: 0.3em 0;
-                        width: 50%;
+                .keen-slider__slide {
+                    height: 100%;
+    
+                    .platform {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
                         display: flex;
-                        align-items: center;
+                        flex-direction: column;
                         justify-content: center;
-                        border-radius: 50vh;
-                        color: var(--bg-color);
-                        text-decoration: none;
+                        align-items: center;
+                        gap: 3em;
 
+                        .title {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 2em;
 
-                        &:hover {
-                            cursor: pointer;
-                            background-color: var(--bg-color);
-                            color: var(--accent-color);
+                            span {
+                                font-weight: 700;
+                                font-size: 8em;
+                                text-align: center;
+                            }
+    
+                            .icon {
+                                font-size: 6em;
+                            }
+                        }
+
+                        .options {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 3em;
+
+                            .button {
+                                width: max-content;
+                                height: max-content;
+                                position: relative;
+                                transition: 0.2s ease-out;
+
+                                &:hover {
+                                    transform: scale(1.1);
+
+                                    &::before {
+                                        transform: translate(1.2em, 0.8em) scale(0.9);
+                                    }
+                                }
+
+                                &:active {
+                                    transform: scale(0.9);
+
+                                    &::before {
+                                        transform: translate(0.3em, 0.3em) scale(1);
+                                    }
+                                }
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    transform: translate(0.6em, 0.6em);
+                                    border: 4px solid var(--accent-color);
+                                    z-index: -1;
+                                    transition: inherit;
+                                }
+
+                                button {
+                                    min-width: 8em;
+                                    height: 3em;
+                                    font-family: 'IBM Plex Mono', monospace;
+                                    font-weight: 600;
+                                    border: none;
+                                    outline: none;
+                                    cursor: pointer;
+                                    background-color: var(--button-bg);
+                                    color: var(--accent-color);
+                                    font-size: 1em;
+                                }
+                            }
                         }
                     }
                 }

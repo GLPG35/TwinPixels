@@ -1,9 +1,10 @@
+import ItemList from './ItemList'
 import '../../scss/listContainer.scss'
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = (props) => {
     return (
-        <div className="message">
-            <h1>{greeting}</h1>
+        <div className="products">
+            <ItemList {...props} />
         </div>
     )
 }

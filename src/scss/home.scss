@@ -5,15 +5,67 @@
 
     .container1 {
         width: 100%;
-        height: calc(100vh - 6em);
+        height: calc(80vh - 4em);
         padding: 1em;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        .message {
+            padding-left: 5em;
+            width: 40%;
+            height: max-content;
+        
+            h1 {
+                font-weight: 900;
+                font-size: 5em;
+                text-transform: uppercase;
+            }
+        }
     
         .nintendoSwitch {
             width: 50%;
             height: 100%;
+        }
+    }
+
+    .container2 {
+        width: 100%;
+        height: max-content;
+        padding: 1em 1em 2em 1em;
+        display: flex;
+        flex-direction: column;
+
+        .subTitle {
+            display: flex;
+            align-items: center;
+            gap: 2em;
+
+            .tabs {
+                display: flex;
+                gap: 1em;
+
+                span {
+                    padding: 0.3em 0.6em;
+                    border: 2px solid var(--accent-color);
+                    border-radius: 50vh;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: 0.2s ease-out;
+                    color: var(--accent-color);
+
+                    &.active, &:hover {
+                        background-color: var(--accent-color);
+                        color: var(--bg-color);
+                    }
+                }
+            }
+        }
+
+        .topProducts {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
         }
     }
 }

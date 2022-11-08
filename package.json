@@ -1,7 +1,7 @@
 {
   "name": "twin-pixels",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "description": "This is an e-commerce project for consoles and videogames sale.",
   "author": "Gian Luca Porto",
@@ -16,7 +16,7 @@
     "retro"
   ],
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host --open",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -24,8 +24,10 @@
     "@react-three/drei": "^9.36.0",
     "@react-three/fiber": "^8.8.10",
     "@react-three/postprocessing": "^2.7.0",
+    "firebase": "^9.12.1",
     "framer-motion": "^7.6.1",
     "framer-motion-3d": "^7.6.1",
+    "keen-slider": "^6.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",

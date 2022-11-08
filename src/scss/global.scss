@@ -3,11 +3,16 @@
 
 :root {
     --bg-color: #1a112e;
+    --bg-color-op: #1a112ed0;
     --accent-color: #f45d92;
     --accent-color-hover: #b00477;
     --text-color: #feb58b;
     --text-color-hover: #f45d92;
     --input-bg: #2e2247;
+    --form-bg: #291d44;
+    --counter-bg: #40325c;
+    --card-bg: #3d1a43;
+    --button-bg: #362853;
 }
 
 *,
@@ -16,6 +21,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0.2em;
+    background-color: transparent;
+
+    &-thumb {
+        background-color: var(--accent-color);
+    }
 }
 
 body {

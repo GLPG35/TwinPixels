@@ -1,0 +1,187 @@
+[
+    {
+        "id": 1,
+        "title": "Xbox Controller",
+        "price": 59,
+        "pic": "/xbox_controller.png",
+        "stock": 13,
+        "description": "Xbox Controller compatible with Xbox One / One S / One X / Series S / Series X and PC.",
+        "categories": [
+            "accesories",
+            "xbox",
+            "pc"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "PlayStation DualSense",
+        "price": 69,
+        "pic": "/dualsense_controller.png",
+        "stock": 11,
+        "description": "PlayStation 5 Controller only for PS5 and PC.",
+        "categories": [
+            "accesories",
+            "playstation",
+            "pc"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Nintendo Switch Pro Controller",
+        "price": 69,
+        "pic": "/switch_pro_controller.png",
+        "stock": 3,
+        "description": "Nintendo Switch Pro Controller compatible with Nintendo Switch / Lite / OLED and PC.",
+        "categories": [
+            "accesories",
+            "nintendo",
+            "pc"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "GameCube Wireless Controller for Nintendo Switch",
+        "price": 59,
+        "pic": "/gc_controller.png",
+        "stock": 20,
+        "description": "Gamecube Wireless Controller for Nintendo Switch / Lite / OLED and PC.",
+        "categories": [
+            "accesories",
+            "nintendo",
+            "pc"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "PowerA Wireless Controller for Nintendo Switch",
+        "price": 39,
+        "pic": "/powera_controller_switch.png",
+        "stock": 54,
+        "description": "PowerA Wireless Controller for Nintendo Switch / Lite / OLED and PC.",
+        "categories": [
+            "accesories",
+            "nintendo",
+            "pc"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "price": 59,
+        "pic": "/botw.png",
+        "stock": 10,
+        "description": "Game available for Nintendo Switch / Lite / OLED.",
+        "categories": [
+            "games",
+            "nintendo"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "NieR: Automata Game of the YoRHa Edition",
+        "price": 39,
+        "pic": "/nier_automata_ps4.png",
+        "stock": 17,
+        "description": "Game available for PlayStation 4 / Slim / Pro.",
+        "categories": [
+            "games",
+            "playstation"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Persona 5 Royal",
+        "price": 59,
+        "pic": "/persona_5_royal_switch.png",
+        "stock": 6,
+        "description": "Game available for Nintendo Switch / Lite / OLED.",
+        "categories": [
+            "games",
+            "nintendo"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Luigi's Mansion 2",
+        "price": 39,
+        "pic": "/luigis_mansion_2.png",
+        "stock": 3,
+        "description": "Game available for Nintendo 3DS / 3DS XL / 2DS / 2DS XL / New 3DS / New 3DS XL / New 2DS / New 2DS XL.",
+        "categories": [
+            "games",
+            "nintendo"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Dragon Ball Z: Kakarot",
+        "price": 59,
+        "pic": "/dragon_ball_kakarot_xbox.png",
+        "stock": 35,
+        "description": "Game available for Xbox One / One S / One X / Series S / Series X.",
+        "categories": [
+            "games",
+            "xbox"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "PlayStation 4 Slim",
+        "price": 299,
+        "pic": "/ps4.png",
+        "stock": 23,
+        "description": "PlayStation 4 Slim, comes with 1 DualShock controller.",
+        "categories": [
+            "consoles",
+            "playstation"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Nintendo Switch Neon",
+        "price": 299,
+        "pic": "/nintendo_switch_neon.png",
+        "stock": 15,
+        "description": "Nintendo Switch Neon, comes with 2 joy-cons and the dock.",
+        "categories": [
+            "consoles",
+            "nintendo"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Xbox Series S",
+        "price": 299,
+        "pic": "/xbox_series_s.png",
+        "stock": 4,
+        "description": "Xbox Series S, comes with 1 Xbox Controller.",
+        "categories": [
+            "consoles",
+            "xbox"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "New Nintendo 3DS",
+        "price": 399,
+        "pic": "/new_nintendo_3ds_black.jpg",
+        "stock": 2,
+        "description": "New Nintendo 3DS Black, play your games even with 3D, only with the switch of a button.",
+        "categories": [
+            "consoles",
+            "nintendo"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "PlayStation 5",
+        "price": 499,
+        "pic": "/ps5.jpg",
+        "stock": 7,
+        "description": "PlayStation 5, comes with 1 DualSense controller.",
+        "categories": [
+            "consoles",
+            "playstation"
+        ]
+    }
+]

@@ -5,6 +5,11 @@ header {
     align-items: center;
     justify-content: space-between;
     padding-inline: 1em;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color-op);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 
     .menu {
         color: var(--accent-color);
@@ -96,6 +101,72 @@ header {
                     &:hover {
                         color: var(--accent-color-hover);
                     }
+
+                    &[disabled] {
+                        pointer-events: none;
+                    }
+                }
+
+                .profile {
+                    position: relative;
+                    
+                    .profilePic {
+                        overflow: hidden;
+                        aspect-ratio: 1 / 1;
+                        border-radius: 50%;
+                        height: 2.2em;
+                        cursor: pointer;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .actions {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        width: max-content;
+                        height: max-content;
+                        transform: translateY(110%);
+                        background-color: var(--input-bg);
+                        padding-top: 1em;
+                        clip-path: polygon(0 1em, calc(100% - 2em) 1em, calc(100% - 1em) 0, 100% 1em, 100% 100%, 0 100%, 0 0);
+
+                        .sections {
+                            padding: 1em;
+                            display: flex;
+                            flex-direction: column;
+                            width: max-content;
+                            height: max-content;
+                            gap: 0.5em;
+
+                            a, span {
+                                padding: 0;
+                                color: var(--text-color);
+                                cursor: pointer;
+                                transition: 0.2s ease-out;
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5em;
+
+                                &:hover {
+                                    color: var(--text-color-hover);
+                                }
+                            }
+                        }
+                    }
+
+                    .shadow {
+                        @extend .actions;
+                        transform: translate(5px, calc(110% + 10px));
+                        background-color: var(--accent-color);
+                        clip-path: polygon(0 1em, calc(100% - 2em) 1em, calc(100% - 1em) 0, 100% 1em,
+                            100% calc(100% - 5px), 0 calc(100% - 5px), 0 0);
+                        z-index: -1;
+                    }
                 }
             }
         }
@@ -106,6 +177,9 @@ header {
                 color: var(--accent-color);
                 transition: 0.2s ease-out;
                 padding: 0.3em 0.5em;
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
 
                 &:hover {
                     color: var(--accent-color-hover);

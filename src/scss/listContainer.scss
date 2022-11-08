@@ -1,11 +1,7 @@
-.message {
-    padding-left: 5em;
-    width: 40%;
-    height: max-content;
-
-    h1 {
-        font-weight: 900;
-        font-size: 5em;
-        text-transform: uppercase;
-    }
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    grid-auto-rows: auto;
+    gap: 1em;
+    row-gap: 2em;
 }

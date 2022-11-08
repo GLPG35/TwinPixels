@@ -1,24 +1,36 @@
-import { Route, Routes } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { createContext, useState, useEffect } from 'react'
+import { IconContext } from 'react-icons'
 import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
-import Home from './home'
-import Page404 from './404'
-import Categories from './catalogue'
-import Consoles from './consoles'
+import { checkUser } from './firebase/client'
+
+export const globalContext = createContext()
 
 const App = () => {
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
+    const [user, setUser] = useState(undefined)
+    const context = {
+        cart,
+        setCart,
+        user,
+        setUser
+    }
+
+    useEffect(() => {
+        checkUser(setUser)
+    }, [])
+
     return (
-        <div className="App">
-            <Header />
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/categories' element={<Categories />} />
-                <Route path='/consoles/:platform' element={<Consoles />} />
-                <Route path='/games/:platform' />
-                <Route path='*' element={<Page404 />} />
-            </Routes>
-            <Footer />
-        </div>
+        <IconContext.Provider value={{style: {verticalAlign: 'middle', fontSize: '1.5em'}}}>
+            <globalContext.Provider value={context}>
+                <div className="App">
+                    <Header />
+                    <Outlet />
+                    <Footer />
+                </div>
+            </globalContext.Provider>
+        </IconContext.Provider>
     )
 }
 
