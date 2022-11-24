@@ -40,6 +40,16 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: top left;
+                opacity: 0;
+
+                &.ready {
+                    opacity: 1;
+                }
+
+                &.placeholder {
+                    position: absolute;
+                    opacity: 1;
+                }
             }
         }
 
@@ -53,12 +63,14 @@
             transition: 0.2s ease-out;
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
 
             img {
                 width: 200%;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
                 object-position: 0 0;
+                user-select: none;
             }
         }
     }
@@ -84,6 +96,26 @@
             font-weight: 700;
             font-size: 1.8em;
             color: var(--accent-color);
+        }
+
+        .colors {
+            height: max-content;
+            width: max-content;
+            display: flex;
+            gap: 1em;
+
+            .color {
+                height: 2em;
+                aspect-ratio: 1 / 1;
+                border-radius: 50%;
+                border: 3px solid var(--text-color);
+                transition: 0.1s ease-out;
+                cursor: pointer;
+
+                &.active {
+                    border: 5px solid var(--accent-color);
+                }
+            }
         }
     }
 }

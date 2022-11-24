@@ -6,20 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import CartWidget from '../modules/CartWidget'
 import { globalContext } from '../../App'
 import { checkUser, logOut } from '../../firebase/client'
+import SearchList from '../modules/SearchList'
 
-const NavBar = ({ handleSearch }) => {
+const NavBar = ({ handleSearch, search, setSearch }) => {
     const { user, setUser } = useContext(globalContext)
     const [profileOp, setProfileOp] = useState(false)
     const searchInput = useRef()
     const profile = useRef()
 
-    const handleOutside = e => {
-        if ((profile.current && !profile.current.contains(e.target))) {
-            setProfileOp(false)
-        }
-    }
-
     useEffect(() => {
+        const handleOutside = e => {
+            if ((profile.current && !profile.current.contains(e.target))) {
+                setProfileOp(false)
+            }
+        }
+        
         if (user) {
             document.addEventListener('click', handleOutside, { capture: true })
         }
@@ -44,8 +45,14 @@ const NavBar = ({ handleSearch }) => {
                     <RiSearchLine />
                 </div>
                 <motion.input ref={searchInput} type="text" onKeyUp={handleSearch}
-                placeholder='Search Games' whileFocus={{width: '100%', paddingInline: '1em'}}
-                transition={{duration: 0.2, type: 'spring', damping: 20, stiffness: 100}} />
+                placeholder='Search Products' whileFocus={{width: '100%', paddingInline: '1em'}}
+                transition={{duration: 0.2, type: 'spring', damping: 20, stiffness: 100}}
+                onBlur={e => {setSearch(null), (e.currentTarget.value = null)}} />
+                <AnimatePresence>
+                    {search &&
+                        <SearchList search={search} />
+                    }
+                </AnimatePresence>
             </div>
             <ul>
                 <li>
@@ -59,8 +66,8 @@ const NavBar = ({ handleSearch }) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/contact'>
-                        Contact
+                    <NavLink to='/orders'>
+                        Orders
                     </NavLink>
                 </li>
                 <li>
@@ -71,8 +78,12 @@ const NavBar = ({ handleSearch }) => {
                     :
                         <div className="profile" ref={profile}>
                             <motion.div whileHover={{scale: 1.1}} whileTap={{scale: 0.9}} className="profilePic">
-                                <img src={`https://ui-avatars.com/api/?name=${user.displayName}&background=2e2247&color=f45d92&size=48`}
-                                alt={user.displayName} onClick={() => setProfileOp(!profileOp)} />
+                                {user.photoURL ?
+                                    <img src={user.photoURL} onClick={() => setProfileOp(!profileOp)} />
+                                :
+                                    <img src={`https://ui-avatars.com/api/?name=${user.displayName}&background=291d44&color=f45d92&size=48`}
+                                    onClick={() => setProfileOp(!profileOp)} />
+                                }
                             </motion.div>
                             <AnimatePresence>
                                 {profileOp &&

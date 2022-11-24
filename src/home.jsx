@@ -2,11 +2,16 @@ import './scss/home.scss'
 import ItemListContainer from './components/modules/ItemListContainer'
 import ConsoleViewer from './components/modules/ConsoleViewer'
 import { NintendoSwitch } from './components/modules/consoles'
-import itemList from './db/items.json'
-import { useState } from 'react'
+import { getItems } from './firebase/client'
+import { useState, useEffect } from 'react'
 
 const Home = () => {
-	const [category, setCategory] = useState('consoles')
+	const [category, setCategory] = useState('console')
+	const [items, setItems] = useState(undefined)
+
+	useEffect(() => {
+		getItems().then(setItems)
+	}, [])
 
 	return (
 		<div className="home">
@@ -23,23 +28,23 @@ const Home = () => {
 			<div className="container2">
 				<div className="topProducts">
 					<div className="subTitle">
-						<h2>Recommended Products</h2>
+						<h2>Recommended Products (A-Z)</h2>
 						<div className="tabs">
-							<span onClick={() => setCategory('consoles')}
-							className={category == 'consoles' ? 'active' : undefined}>
+							<span onClick={() => setCategory('console')}
+							className={category == 'console' ? 'active' : undefined}>
 								Consoles
 							</span>
-							<span onClick={() => setCategory('games')}
-							className={category == 'games' ? 'active' : undefined}>
+							<span onClick={() => setCategory('game')}
+							className={category == 'game' ? 'active' : undefined}>
 								Games
 							</span>
-							<span onClick={() => setCategory('accesories')}
-							className={category == 'accesories' ? 'active' : undefined}>
+							<span onClick={() => setCategory('accesory')}
+							className={category == 'accesory' ? 'active' : undefined}>
 								Accesories
 							</span>
 						</div>
 					</div>
-					<ItemListContainer items={itemList} categoryList={[category]} />
+					<ItemListContainer items={items} categoryList={[category]} />
 				</div>
 			</div>
 		</div>

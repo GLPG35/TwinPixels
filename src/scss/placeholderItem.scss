@@ -1,0 +1,100 @@
+@keyframes skeletonAnim {
+    0% {
+        background-position: right;
+    }
+
+    70%, 100% {
+        background-position: left;
+    }
+}
+
+.placeholder {
+    width: 90%;
+    height: max-content;
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        border: 5px solid var(--accent-color);
+        top: 0;
+        left: 0;
+        transform: translate(1em, 1em);
+    }
+
+    .pic {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-image: linear-gradient(to right,
+            var(--form-bg) 0%, var(--form-bg) 40%,
+            var(--button-bg) 50%, var(--button-bg) 50%,
+            var(--form-bg) 60%, var(--form-bg) 100%
+        );
+        background-size: 350%;
+        background-position: right;
+        animation: skeletonAnim 2s ease-out forwards infinite;
+    }
+
+    .content {
+        height: 5em;
+        display: flex;
+        align-items: center;
+        padding-inline: 1.5em 1em;
+        gap: 1em;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 75%;
+
+            .title {
+                width: 80%;
+                height: 1ch;
+                font-weight: 600;
+                background-size: 350%;
+                background-position: right;
+                animation: skeletonAnim 2s ease-out forwards infinite;
+                background-image: linear-gradient(to right,
+                    var(--text-color) 0%, var(--text-color) 40%,
+                    var(--text-color-light) 50%, var(--text-color-light) 50%,
+                    var(--text-color) 60%, var(--text-color) 100%
+                );
+            }
+    
+            .price {
+                width: 20%;
+                height: 0.5ch;
+                font-weight: 400;
+                background-size: 350%;
+                background-position: right;
+                animation: skeletonAnim 2s ease-out forwards infinite;
+                background-image: linear-gradient(to right,
+                    var(--text-color) 0%, var(--text-color) 40%,
+                    var(--text-color-light) 50%, var(--text-color-light) 50%,
+                    var(--text-color) 60%, var(--text-color) 100%
+                );
+            }
+        }
+
+        .button {
+            width: 2em;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            background-size: 350%;
+            background-position: right;
+            animation: skeletonAnim 2s ease-out forwards infinite;
+            background-image: linear-gradient(to right,
+                var(--accent-color) 0%, var(--accent-color) 40%,
+                var(--accent-color-light) 50%, var(--accent-color-light) 50%,
+                var(--accent-color) 60%, var(--accent-color) 100%
+            );
+        }
+    }
+}

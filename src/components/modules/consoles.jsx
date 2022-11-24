@@ -4,6 +4,29 @@ import { useFrame } from '@react-three/fiber'
 import switchModel from '../../../models/Nintendo_Switch.glb?url'
 import seriesSModel from '../../../models/Xbox_Series_S.glb?url'
 import ps4Model from '../../../models/PS4.glb?url'
+import twinPixelsModel from '../../../models/TwinPixels.glb?url'
+
+export const TwinPixels3D = ({ ...props }) => {
+  const group = useRef()
+  const { nodes, materials } = useGLTF(twinPixelsModel)
+
+	useFrame(state => {
+		const t = state.clock.getElapsedTime()
+		group.current.rotation.y = Math.sin(t / 0.5) / 15
+		group.current.position.y = Math.sin(t) * 0.5
+	})
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      	<group position={[1.16, -2, -0.04]} rotation={[0, 1.55, 0]}>
+        	<mesh geometry={nodes.Cube002.geometry} material={materials.Voxel_mat250} />
+        	<mesh geometry={nodes.Cube002_1.geometry} material={materials.Voxel_mat249} />
+      	</group>
+    </group>
+  )
+}
+
+
 
 export const NintendoSwitch = ({ ...props }) => {
 	const group = useRef()
@@ -63,3 +86,4 @@ export const PS4 = ({ ...props }) => {
 useGLTF.preload(ps4Model)
 useGLTF.preload(switchModel)
 useGLTF.preload(seriesSModel)
+useGLTF.preload(twinPixelsModel)

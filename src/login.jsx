@@ -1,6 +1,6 @@
 import { RiSendPlaneFill, RiCloseFill } from 'react-icons/ri'
 import './scss/login.scss'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { signIn } from './firebase/client'
 import { useState, useContext, useEffect } from 'react'
 import { globalContext } from './App'
@@ -86,10 +86,11 @@ const Login = () => {
                             </span>
                         </div>
                     </div>
-                    <motion.button type='submit'
-                    whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
-                        Send <RiSendPlaneFill />
-                    </motion.button>
+                    <div className="button">
+                        <button type='submit'>
+                            Send <RiSendPlaneFill />
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

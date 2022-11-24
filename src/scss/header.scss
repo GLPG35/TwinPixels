@@ -60,6 +60,7 @@ header {
             align-items: center;
             justify-content: flex-end;
             gap: 0.5em;
+            position: relative;
 
             .search {
                 padding: 0.3em 0.5em;
@@ -80,6 +81,7 @@ header {
                 border-radius: 50vh;
                 background-color: var(--input-bg);
                 color: var(--text-color);
+                font-family: 'IBM Plex Mono', monospace;
             }
         }
 

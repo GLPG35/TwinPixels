@@ -114,6 +114,7 @@
             justify-content: center;
             gap: 0.5em;
             transition: 0.3s ease-out;
+            font-family: 'IBM Plex Mono', monospace;
 
             &.active {
                 background-position: left;
@@ -122,4 +123,14 @@
             }
         }
     }
+}
+
+.noStock {
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    width: max-content;
+    font-weight: 600;
 }

@@ -1,0 +1,122 @@
+.orders {
+    width: 100%;
+    height: max-content;
+
+    .container1 {
+        width: 100%;
+        min-height: calc(100vh - 6em);
+        padding: 1em 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+
+        h2 {
+            font-size: 2em;
+        }
+
+        .orderList {
+            height: max-content;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+            gap: 4em;
+            padding-bottom: 1em;
+
+            .order {
+                width: 100%;
+                height: 100%;
+                padding: 2em;
+                background-color: var(--form-bg);
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                position: relative;
+                font-weight: 700;
+                font-size: 1.2em;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 5px solid var(--accent-color);
+                    transform: translate(1em, 1em);
+                    z-index: -1;
+                }
+
+                &:hover {
+                    .icon {
+                        transform: translateX(0.2em);
+                    }
+                }
+                
+                .info {
+                    gap: 2em;
+                    width: 100%;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+
+                    .top {
+                        width: 100%;
+                        height: max-content;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .left {
+                            display: flex;
+                            flex-direction: column;
+                            width: max-content;
+                            height: max-content;
+
+                            .price {
+                                font-size: 2em;
+                                font-weight: 700;
+                            }
+    
+                            .date {
+                                font-weight: 400;
+                                font-size: 0.7em;
+                                position: relative;
+                                width: max-content;
+                                color: var(--form-bg-light);
+
+                                &::before {
+                                    position: absolute;
+                                    content: '';
+                                    width: 100%;
+                                    height: 3px;
+                                    background-color: var(--accent-color);
+                                    bottom: -1ch;
+                                }
+                            }
+                        }
+
+                        .icon {
+                            font-size: 2em;
+                            transition: 0.2s ease-out;
+                        }
+                    }
+                    
+                    .bottom {
+                        width: 100%;
+                        display: flex;
+                        height: max-content;
+                        justify-content: space-between;
+                        font-weight: 600;
+                        font-size: 0.8em;
+                        align-items: center;
+                        color: var(--form-bg-light);
+
+                        .id {
+                            color: var(--text-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

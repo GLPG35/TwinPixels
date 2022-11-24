@@ -5,17 +5,11 @@ import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
 import { checkUser } from './firebase/client'
 
-export const globalContext = createContext()
+export const globalContext = createContext('')
 
 const App = () => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
     const [user, setUser] = useState(undefined)
-    const context = {
-        cart,
-        setCart,
-        user,
-        setUser
-    }
 
     useEffect(() => {
         checkUser(setUser)
@@ -23,7 +17,7 @@ const App = () => {
 
     return (
         <IconContext.Provider value={{style: {verticalAlign: 'middle', fontSize: '1.5em'}}}>
-            <globalContext.Provider value={context}>
+            <globalContext.Provider value={{ cart, setCart, user, setUser }}>
                 <div className="App">
                     <Header />
                     <Outlet />

@@ -22,6 +22,8 @@
         width: 100%;
         aspect-ratio: 1 / 1;
         box-shadow: inset 0px -30px 16px -23px #0c0c0c;
+        cursor: pointer;
+        position: relative;
 
         img {
             width: 100%;
@@ -29,7 +31,16 @@
             aspect-ratio: 1 / 1;
             object-fit: cover;
             object-position: top;
-            image-rendering: crisp-edges;
+            opacity: 0;
+
+            &.ready {
+                opacity: 1;
+            }
+
+            &.placeholder {
+                position: absolute;
+                opacity: 1;
+            }
         }
     }
 
@@ -96,6 +107,20 @@
 
                 span {
                     position: absolute;
+                }
+            }
+
+            &.noStock {
+                button {
+                    &:hover {
+                        cursor: initial;
+                        background-color: transparent;
+                        color: var(--accent-color);
+                    }
+
+                    span {
+                        font-size: 0.8em;
+                    }
                 }
             }
         }

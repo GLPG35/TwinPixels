@@ -1,0 +1,304 @@
+.edit {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-right: 1em;
+
+    .itemsWrapper {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .itemList {
+            height: max-content;
+            width: 100%;
+            background-color: var(--form-bg);
+            padding: 2em;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+            grid-auto-rows: 10em;
+            gap: 2em;
+            position: relative;
+            z-index: 1;
+    
+            .item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                gap: 2em;
+                padding: 1em 2em;
+                align-items: center;
+                background-color: var(--button-bg);
+                position: relative;
+    
+                &::before {
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    border: 5px solid var(--accent-color);
+                    transform: translate(1em, 1em);
+                }
+    
+                .pic {
+                    height: 80%;
+                    aspect-ratio: 1 / 1;
+                    position: relative;
+                    z-index: 1;
+    
+                    &::before {
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+                        content: '';
+                        position: absolute;
+                        border: 5px solid var(--accent-color);
+                        top: 0;
+                        left: 0;
+                        transform: translate(5px, 5px);
+                    }
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+    
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em;
+    
+                    .title {
+                        font-size: 1.1em;
+                        font-weight: 700;
+                    }
+                }
+    
+                .edit {
+                    width: max-content;
+                    height: max-content;
+                    margin-left: auto;
+                    padding: 1em;
+                    transition: 0.2s ease-out;
+                    cursor: pointer;
+    
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+                }
+            }
+        }
+
+        .itemEdit {
+            width: 100%;
+            height: max-content;
+            background-color: var(--form-bg);
+            display: flex;
+            flex-direction: column;
+
+            .topBar {
+                width: 100%;
+                height: max-content;
+                display: flex;
+                padding: 0.5em;
+                align-items: center;
+
+                .wrapper {
+                    width: max-content;
+                    height: max-content;
+                    cursor: pointer;
+                    transition: 0.2s ease-out;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+
+                    .icon {
+                        font-size: 2em;
+                    }
+    
+                    .infoTitle {
+                        font-weight: 700;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+
+            .content {
+                width: 100%;
+                height: max-content;
+                display: flex;
+
+                form {
+                    --grid-layout-gap: 2em;
+                    --grid-column-count: 3;
+                    --grid-item--min-width: 20em;
+
+                    --gap-count: calc(var(--grid-column-count) - 1);
+                    --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+                    --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+                    grid-gap: var(--grid-layout-gap);
+                    height: max-content;
+                    width: 100%;
+                    padding: 2em;
+
+                    .left {
+                        height: max-content;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 2em;
+    
+                        .pic {
+                            width: 18em;
+                            height: 18em;
+                            aspect-ratio: 1 / 1;
+                            border: 5px solid var(--accent-color);
+    
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .colors {
+                            width: 100%;
+                            height: max-content;
+                            display: flex;
+                            gap: 1em;
+
+                            .color {
+                                height: 2em;
+                                width: 2em;
+                                border-radius: 50%;
+                                border: 3px solid var(--text-color);
+                                transition: border 0.1s ease-out;
+
+                                &.active {
+                                    border: 5px solid var(--accent-color);
+                                }
+
+                                input {
+                                    opacity: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+
+                    .middle {
+                        height: max-content;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 2em;
+
+                        input {
+                            border: none;
+                            outline: none;
+                            font-family: 'IBM Plex Mono', monospace;
+                            padding: 1em;
+                            font-size: 0.9em;
+                            font-weight: 600;
+                            background-color: transparent;
+                            border-bottom: 3px solid var(--accent-color);
+                            color: var(--text-color);
+
+                            &::-webkit-outer-spin-button,
+                            &::-webkit-inner-spin-button {
+                                appearance: none;
+                            }
+
+                            &[type="number"] {
+                                appearance: textfield;
+                                margin: 0;
+                            }
+                        }
+
+                        .description {
+                            width: 100%;
+                            height: 15em;
+                            padding: 1em;
+                            font-family: 'IBM Plex Mono', monospace;
+                            font-size: 0.9em;
+                            font-weight: 600;
+                            border: 3px solid var(--accent-color);
+                            outline: none;
+                            background-color: transparent;
+                            color: var(--text-color);
+                            resize: none;
+                        }
+
+                        .inputTitle {
+                            width: 100%;
+                        }
+
+                        .inputPrice,
+                        .inputStock {
+                            flex-grow: 1;
+                        }
+                    }
+
+                    .right {
+                        height: max-content;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2em;
+
+                        .platforms {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 1em;
+                            row-gap: 2em;
+                            
+                            span {
+                                font-weight: 600;
+                                width: 100%;
+                            }
+
+                            input {
+                                display: none;
+    
+                                &:checked + label {
+                                    background-color: var(--accent-color);
+                                    color: var(--form-bg);
+                                }
+                            }
+    
+                            label {
+                                padding: 0.5em 1em;
+                                font-size: 0.8em;
+                                border: 3px solid var(--accent-color);
+                                border-radius: 50vh;
+                                user-select: none;
+                                transition: 0.2s ease-out;
+                                font-weight: 600;
+                                cursor: pointer;
+                                color: var(--accent-color);
+                            }
+                        }
+
+                        .categoryList {
+                            @extend .platforms;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+.delete {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-right: 1em;
+
+    .deleteWrapper {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .itemList {
+            height: max-content;
+            width: 100%;
+            background-color: var(--form-bg);
+            padding: 2em;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+            grid-auto-rows: 10em;
+            gap: 2em;
+            position: relative;
+            z-index: 1;
+    
+            .item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                gap: 2em;
+                padding: 1em 2em;
+                align-items: center;
+                background-color: var(--button-bg);
+                position: relative;
+    
+                &::before {
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    border: 5px solid var(--accent-color);
+                    transform: translate(1em, 1em);
+                }
+    
+                .pic {
+                    height: 80%;
+                    aspect-ratio: 1 / 1;
+                    position: relative;
+                    z-index: 1;
+    
+                    &::before {
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+                        content: '';
+                        position: absolute;
+                        border: 5px solid var(--accent-color);
+                        top: 0;
+                        left: 0;
+                        transform: translate(5px, 5px);
+                    }
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+    
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+    
+                    .title {
+                        font-size: 1.1em;
+                        font-weight: 700;
+                    }
+
+                    .categoryList {
+                        display: flex;
+                        gap: 0.5em;
+
+                        .categoryEl {
+                            padding: 0.3em 0.8em;
+                            border-radius: 50vh;
+                            font-size: 0.8em;
+                            border: 3px solid var(--accent-color);
+                            color: var(--accent-color);
+                        }
+                    }
+                }
+    
+                .delete {
+                    width: max-content;
+                    height: max-content;
+                    margin-left: auto;
+                    padding: 1em;
+                    transition: 0.2s ease-out;
+                    cursor: pointer;
+                    font-size: 1.1em;
+    
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+                }
+            }
+        }
+    }
+}

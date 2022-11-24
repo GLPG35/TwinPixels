@@ -1,0 +1,76 @@
+.notFound {
+    width: 100%;
+    height: calc(100vh - 15em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+
+    .icon {
+        font-size: 5em;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 2em;
+        max-width: 15em;
+    }
+
+    span {
+        font-size: 1.1em;
+    }
+
+    .button {
+        width: max-content;
+        height: max-content;
+        position: relative;
+        transition: 0.2s ease-out;
+        margin-top: 1em;
+
+        &:hover {
+            transform: scale(1.1);
+
+            &::before {
+                transform: translate(1.2em, 0.8em) scale(0.9);
+            }
+        }
+
+        &:active {
+            transform: scale(0.9);
+
+            &::before {
+                transform: translate(0.3em, 0.3em) scale(1);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: 0.2s ease-out;
+            transform: translate(0.6em, 0.6em);
+            border: 4px solid var(--accent-color);
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: 0.6em 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--accent-color);
+            background-color: var(--button-bg);
+            gap: 0.5em;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+    }
+}

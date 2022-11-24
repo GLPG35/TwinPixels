@@ -4,12 +4,13 @@ import { RiShoppingCartLine } from 'react-icons/ri'
 
 const CartWidget = () => {
     const { cart } = useContext(globalContext)
+    const reduceCart = cart.reduce((prev, curr) => Number(prev) + Number(curr.quantity), 0)
     
     return (
         <>
             <RiShoppingCartLine />
             <span className='quantity'>
-                {cart.length <= 99 ? cart.length : '+99'}
+                {reduceCart <= 99 ? reduceCart : '+99'}
             </span>
         </>
     )

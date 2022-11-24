@@ -12,6 +12,8 @@ import Category from './category'
 import ItemDetailContainer from './components/modules/ItemDetailContainer'
 import Cart from './cart'
 import Dashboard from './dashboard'
+import Orders from './orders'
+import Order from './order'
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
             {
                 path: '/item/:id',
                 element: <ItemDetailContainer />
+            },
+            {
+                path: '/orders',
+                element: <Orders />
+            },
+            {
+                path: '/order/:id',
+                element: <Order />
             },
             {
                 path: '/login',

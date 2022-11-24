@@ -20,6 +20,29 @@ const Categories = () => {
         }
     })
 
+    const categoryList = [
+        {
+            brand: 'Nintendo',
+            icon: <SiNintendoswitch />,
+            platform: 'nintendo'
+        },
+        {
+            brand: 'PlayStation',
+            icon: <SiPlaystation />,
+            platform: 'playstation'
+        },
+        {
+            brand: 'Xbox',
+            icon: <SiXbox />,
+            platform: 'xbox'
+        },
+        {
+            brand: 'PC',
+            icon: <RiComputerLine />,
+            platform: 'pc'
+        }
+    ]
+
     return (
         <div className="categories">
             <div className="container1">
@@ -36,128 +59,48 @@ const Categories = () => {
                         </>
                     }
                     <div ref={sliderRef} className="keen-slider">
-                        <div className="keen-slider__slide number-slide1">
-                            <div className="platform nintendo">
-                                <div className="title">
-                                    <div className="icon">
-                                        <SiNintendoswitch />
-                                    </div>
-                                    <span>
-                                        Nintendo
-                                    </span>
-                                </div>
-                                <div className="options">
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/consoles?platform=nintendo')}>
-                                            Consoles
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/games?platform=nintendo')}>
-                                            Games
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/accesories?platform=nintendo')}>
-                                            Accesories
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="keen-slider__slide number-slide2">
-                            <div className="platform playstation">
-                                <div className="title">
-                                    <div className="icon">
-                                        <SiPlaystation />
-                                    </div>
-                                    <span>
-                                        PlayStation
-                                    </span>
-                                </div>
-                                <div className="options">
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/consoles?platform=playstation')}>
-                                            Consoles
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/games?platform=playstation')}>
-                                            Games
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/accesories?platform=playstation')}>
-                                            Accesories
-                                        </button>
+                        {categoryList.map(({ brand, icon, platform }, index) => {
+                            return (
+                                <div key={platform} className={`keen-slider__slide number-slide${index + 1}`}>
+                                    <div className='platform'>
+                                        <div className="title">
+                                            <div className="icon">
+                                                {icon}
+                                            </div>
+                                            <span>
+                                                {brand}
+                                            </span>
+                                        </div>
+                                        <div className="options">
+                                            <div className="button">
+                                                <button
+                                                onClick={() => 
+                                                    navigate(`/category/console?platform=${platform}`)
+                                                }>
+                                                    Consoles
+                                                </button>
+                                            </div>
+                                            <div className="button">
+                                                <button
+                                                onClick={() => 
+                                                    navigate(`/category/game?platform=${platform}`)
+                                                }>
+                                                    Games
+                                                </button>
+                                            </div>
+                                            <div className="button">
+                                                <button
+                                                onClick={() => 
+                                                    navigate(`/category/accesory?platform=${platform}`)
+                                                }>
+                                                    Accesories
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="keen-slider__slide number-slide3">
-                            <div className="platform xbox">
-                                <div className="title">
-                                    <div className="icon">
-                                        <SiXbox />
-                                    </div>
-                                    <span>
-                                        Xbox
-                                    </span>
-                                </div>
-                                <div className="options">
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/consoles?platform=xbox')}>
-                                            Consoles
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/games?platform=xbox')}>
-                                            Games
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/accesories?platform=xbox')}>
-                                            Accesories
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="keen-slider__slide number-slide4">
-                            <div className="platform pc">
-                                <div className="title">
-                                    <div className="icon">
-                                        <RiComputerLine />
-                                    </div>
-                                    <span>
-                                        PC
-                                    </span>
-                                </div>
-                                <div className="options">
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/games?platform=pc')}>
-                                            Games
-                                        </button>
-                                    </div>
-                                    <div className="button">
-                                        <button
-                                        onClick={() => navigate('/category/accesories?platform=pc')}>
-                                            Accesories
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
                     {loaded && 
                         <div className="dots">

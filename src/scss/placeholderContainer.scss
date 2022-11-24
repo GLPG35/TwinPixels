@@ -1,8 +1,8 @@
-.products {
+.placeholderContainer {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     grid-auto-rows: auto;
     gap: 1em;
     row-gap: 2em;
-    position: relative;
 }

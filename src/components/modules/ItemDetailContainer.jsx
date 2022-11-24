@@ -1,35 +1,33 @@
 import ItemDetail from './ItemDetail'
 import { useNavigate, useParams } from 'react-router-dom'
-import itemList from '../../db/items.json'
 import { RiFileWarningLine, RiHome2Fill } from 'react-icons/ri'
 import '../../scss/detailContainer.scss'
+import { getItemFID } from '../../firebase/client'
+import { useEffect, useState } from 'react'
+import Spinner from './Spinner'
+import NotFound from './NotFound'
 
 const ItemDetailContainer = () => {
     const { id } = useParams()
-    const findItem = itemList.find(x => x.id == id)
-    const navigate = useNavigate()
+    const [item, setItem] = useState(undefined)
+
+    useEffect(() => {
+        getItemFID(id).then(setItem)
+    }, [id])
     
     return (
         <div className="details">
             <div className="container1">
-                {findItem ? <ItemDetail {...findItem} />
+                {item === undefined  ?
+                    <Spinner />
+                : item === null ?
+                    <NotFound title={'Item not found'}
+                    message={'Please search again or go back to the home page'}
+                    icon={<RiFileWarningLine />} btnText={'Go Home'}
+                    btnIcon={<RiHome2Fill />} route={'/'}
+                    height={'calc(100vh - 6em)'} />
                 :
-                    <div className="notFound">
-                        <div className="icon">
-                            <RiFileWarningLine />
-                        </div>
-                        <div className="content">
-                            <div className="info">
-                                <h2>Item Not Found</h2>
-                                <span>Please search again or go back to the home page</span>
-                            </div>
-                            <div className='button'>
-                                <button onClick={() => navigate('/')}>
-                                    <RiHome2Fill /> Go Home
-                                </button>
-                            </div>
-                        </div>
-                    </div> 
+                    <ItemDetail {...item} />
                 }
             </div>
         </div>

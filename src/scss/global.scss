@@ -5,14 +5,18 @@
     --bg-color: #1a112e;
     --bg-color-op: #1a112ed0;
     --accent-color: #f45d92;
+    --accent-color-light: #fe98bc;
     --accent-color-hover: #b00477;
     --text-color: #feb58b;
+    --text-color-light: #fff4d5;
     --text-color-hover: #f45d92;
     --input-bg: #2e2247;
     --form-bg: #291d44;
+    --form-bg-light: #76689a;
     --counter-bg: #40325c;
     --card-bg: #3d1a43;
     --button-bg: #362853;
+    --button-active-bg: #453663;
 }
 
 *,
@@ -39,4 +43,5 @@ body {
     background-repeat: repeat;
     background-size: 50em;
     color: var(--text-color);
+    overflow-x: hidden;
 }

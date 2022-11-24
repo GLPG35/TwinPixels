@@ -1,11 +1,19 @@
 import ItemList from './ItemList'
 import '../../scss/listContainer.scss'
+import { AnimatePresence } from 'framer-motion'
+import PlaceholderContainer from './PlaceholderContainer'
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({ items, categoryList, search = null }) => {
     return (
-        <div className="products">
-            <ItemList {...props} />
-        </div>
+        <AnimatePresence>
+            {items === undefined ?
+                <PlaceholderContainer />
+            :
+                <div className="products">
+                    <ItemList items={items} categoryList={categoryList} search={search} />
+                </div>
+            }
+        </AnimatePresence>
     )
 }
 
