@@ -11,7 +11,9 @@ import SearchList from '../modules/SearchList'
 const NavBar = ({ handleSearch, search, setSearch }) => {
     const { user, setUser } = useContext(globalContext)
     const [profileOp, setProfileOp] = useState(false)
+    const [searchActive, setSearchActive] = useState(false)
     const searchInput = useRef()
+    const searchRef = useRef()
     const profile = useRef()
 
     useEffect(() => {
@@ -38,18 +40,33 @@ const NavBar = ({ handleSearch, search, setSearch }) => {
         })
     }
 
+    useEffect(() => {
+        const handleOutside = e => {
+            if (searchInput.current && !searchInput.current.contains(e.target)) {
+                setSearchActive(false)
+                setSearch(null)
+                searchRef.current.value = ''
+            }
+        }
+
+        document.addEventListener('click', handleOutside, { capture: true })
+
+        return () => {
+            document.removeEventListener('click', handleOutside)
+        }
+    }, [searchActive])
+
     return (
         <motion.nav layout>
-            <div className="searchBar">
-                <div className="search" onClick={() => searchInput.current.focus()}>
+            <div className="searchBar" ref={searchInput}>
+                <div className="search" onClick={() => setSearchActive(true)}>
                     <RiSearchLine />
                 </div>
-                <motion.input ref={searchInput} type="text" onKeyUp={handleSearch}
-                placeholder='Search Products' whileFocus={{width: '100%', paddingInline: '1em'}}
-                transition={{duration: 0.2, type: 'spring', damping: 20, stiffness: 100}}
-                onBlur={e => {setSearch(null), (e.currentTarget.value = null)}} />
+                <motion.input type="text" onKeyUp={handleSearch} ref={searchRef}
+                placeholder='Search Products' animate={searchActive ? {width: '100%', paddingInline: '1em'} : undefined}
+                transition={{duration: 0.2, type: 'spring', damping: 20, stiffness: 100}} />
                 <AnimatePresence>
-                    {search &&
+                    {search && searchActive &&
                         <SearchList search={search} />
                     }
                 </AnimatePresence>
