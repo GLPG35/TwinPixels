@@ -1,4 +1,4 @@
-# Twin Pixels
+# Twin Pixels ![License Badge](https://badgen.net/badge/License/MIT/purple)
 
 <img src="images/TwinPixels_Icon.png" width="100px" height="auto" />
 
