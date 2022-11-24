@@ -1,6 +1,6 @@
 # Twin Pixels
 
-![Twin Pixels Logo](https://i.ibb.co/yFB0DGk/Twin-Pixels-Mesa-de-trabajo-1-copia-20.png)
+<img src="images/TwinPixels_Icon.png" width="100px" height="auto" />
 
 This is an e-commerce project for consoles and videogames sale, made with React JS.
 
