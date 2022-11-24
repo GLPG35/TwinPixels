@@ -1,7 +1,7 @@
 {
   "name": "twin-pixels",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "This is an e-commerce project for consoles and videogames sale.",
   "author": "Gian Luca Porto",

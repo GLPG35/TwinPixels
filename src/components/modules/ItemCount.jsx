@@ -3,11 +3,14 @@ import { globalContext } from '../../App'
 import { RiAddFill, RiSubtractFill, RiShoppingCartLine, RiCheckFill, RiAlertFill } from 'react-icons/ri'
 import useAddToCart from '../../hooks/useAddToCart'
 import '../../scss/itemCount.scss'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const ItemCount = ({ id, stock }) => {
     const { setCart } = useContext(globalContext)
     const [quant, setQuant] = useState(1)
     const [buy, setBuy] = useState(false)
+    const navigate = useNavigate()
 
     const handleDec = () => {
         quant > 1 && setQuant(Number(quant) - 1)
@@ -28,10 +31,6 @@ const ItemCount = ({ id, stock }) => {
 
         useAddToCart(id, quant).then(() => {
             setCart(JSON.parse(localStorage.getItem('cart')))
-
-            setTimeout(() => {
-                setBuy(false)
-            }, 2000)
         })
     }
     
@@ -49,11 +48,23 @@ const ItemCount = ({ id, stock }) => {
                             <RiAddFill />
                         </button>
                     </div>
-                    <div className="button">
+                    <div className={!buy ? 'button' : 'button active'}>
                         <button className={!buy ? 'buy' : 'buy active'} type='submit'>
                             {!buy ? <><RiShoppingCartLine /> Buy</> : <><RiCheckFill /> Added</> } 
                         </button>
                     </div>
+                    <AnimatePresence>
+                        {buy &&
+                            <motion.div initial={{scale: 0}} animate={{scale: 1}}
+                            className="button" whileHover={{scale: 1.1}}
+                            whileTap={{scale: 0.9}}>
+                                <button className='buy' onClick={() => navigate('/cart')}>
+                                    <RiShoppingCartLine />
+                                    Go to Cart
+                                </button>
+                            </motion.div>
+                        }
+                    </AnimatePresence>
                 </form>
             :
                 <div className="noStock">
